@@ -1,6 +1,7 @@
 package com.sparta.aaron.Sorters;
 
 
+import com.sparta.aaron.Starters.Printer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -107,7 +108,17 @@ private static int nodeCount = 0;
         return arrayOfInt;
     } // Done Works
 
-
+    @Override
+    public void sort(int[] arrayToSort, String direction) {
+        Printer.printIntArray(arrayToSort);
+        addElements(arrayToSort);
+        if (direction.equalsIgnoreCase("asc") ){
+            Printer.printIntArray(getSortedTreeAsc());
+        } else {
+            Printer.printIntArray(getSortedTreeDesc());
+        }
+        Printer.printMessage("Sorted using the Binary Tree Sort");
+    }
 
 
     static class Node {

@@ -1,5 +1,7 @@
 package com.sparta.aaron.Sorters;
 
+import com.sparta.aaron.Starters.Printer;
+
 public class BubbleSort extends SortManager{
 
     public static int[] bubble_sort(int[] numbers, String direction) {
@@ -33,5 +35,12 @@ public class BubbleSort extends SortManager{
 
         //return the sorted set of numbers
         return numbers;
+    }
+
+    @Override
+    public void sort(int[] arrayToSort, String direction) {
+        Printer.printIntArray(arrayToSort);
+        Printer.printIntArray(bubble_sort(arrayToSort, direction));
+        Printer.printMessage("Sorted using the Bubble Sort");
     }
 }

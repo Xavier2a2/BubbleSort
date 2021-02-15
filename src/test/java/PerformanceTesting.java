@@ -1,69 +1,67 @@
+import com.sparta.aaron.Sorters.BinarySort;
+import com.sparta.aaron.Sorters.BubbleSort;
+import com.sparta.aaron.Sorters.MergeSort;
 import com.sparta.aaron.Sorters.SortManager;
 import com.sparta.aaron.Starters.Printer;
 import com.sparta.aaron.Starters.RandomArrayGenerator;
 import org.junit.jupiter.api.Test;
 
-import java.util.Random;
 
 public class PerformanceTesting {
 
     @Test
-    void beginTests(){
-        Printer.printMessage("Begin tests\n");
-    }
-    @Test
     void mergeSortTestAsc(){
         int[] randomArray = RandomArrayGenerator.generate(10);
-        SortManager sorter = new SortManager();
+        SortManager sorter = new MergeSort();
         long start = System.currentTimeMillis();
-        sorter.sort(randomArray, "merge", "asc");
+        sorter.sort(randomArray, "asc");
         long end = System.currentTimeMillis();
-        Printer.printMessage("Time taken:: "+(end - start)+"\n");
+        Printer.printMessage("Time taken:: "+(end - start)+"ms"+"\n");
     }
 
     @Test
     void mergeSortTestDesc(){
         int[] randomArray = RandomArrayGenerator.generate(10);
-        SortManager sorter = new SortManager();
+        SortManager sorter = new MergeSort();
         long start = System.currentTimeMillis();
-        sorter.sort(randomArray, "merge", "desc");
+        sorter.sort(randomArray, "desc");
         long end = System.currentTimeMillis();
-        Printer.printMessage("Time taken:: "+(end - start)+"\n");
+        Printer.printMessage("Time taken:: "+(end - start)+"ms"+"\n");
     }
 
     @Test
     void bubbleSortTestAsc(){
         int[] randomArray = RandomArrayGenerator.generate(10);
-        SortManager sorter = new SortManager();
+        SortManager sorter = new BubbleSort();
         long start = System.currentTimeMillis();
-        sorter.sort(randomArray, "bubble", "asc");
+        sorter.sort(randomArray, "asc");
         long end = System.currentTimeMillis();
-        Printer.printMessage("Time taken:: "+(end - start)+"\n");
+        Printer.printMessage("Time taken:: "+(end - start)+"ms"+"\n");
     }
 
     @Test
     void bubbleSortTestDesc(){
         int[] randomArray = RandomArrayGenerator.generate(10);
-        SortManager sorter = new SortManager();
+        SortManager sorter = new BubbleSort();
         long start = System.currentTimeMillis();
-        sorter.sort(randomArray, "bubble", "desc");
+        sorter.sort(randomArray, "desc");
         long end = System.currentTimeMillis();
-        Printer.printMessage("Time taken:: "+(end - start)+"\n");
+        Printer.printMessage("Time taken:: "+(end - start)+"ms"+"\n");
     }
 
     @Test
     void binarySortTests(){
         int[] randomArray = RandomArrayGenerator.generate(10);
-        SortManager sorter = new SortManager();
+        SortManager sorter = new BinarySort();
         long start = System.currentTimeMillis();
-        sorter.sort(randomArray, "binary", "desc");
+        sorter.sort(randomArray, "desc");
         long end = System.currentTimeMillis();
-        Printer.printMessage("Time taken:: "+(end - start)+"\n");
+        Printer.printMessage("Time taken:: "+(end - start)+"ms"+"\n");
 
         start = System.currentTimeMillis();
-        sorter.sort(randomArray, "binary", "asc");
+        sorter.sort(randomArray, "asc");
         end = System.currentTimeMillis();
-        Printer.printMessage("Time taken:: "+(end - start)+"\n");
+        Printer.printMessage("Time taken:: "+(end - start)+"ms"+"\n");
 
 
     }

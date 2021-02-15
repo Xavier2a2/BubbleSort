@@ -1,5 +1,7 @@
 package com.sparta.aaron.Sorters;
 
+import com.sparta.aaron.Starters.Printer;
+
 public class MergeSort extends SortManager {
 
     public static int[] mergeSort(int[] array, String direction){
@@ -28,20 +30,15 @@ public class MergeSort extends SortManager {
         int[] rHalf = new int[size - midpoint];
 
 
-        for (int i = 0; i < midpoint; i++) {
-            lHalf[i] = array[i];
-        }
+        System.arraycopy(array, 0, lHalf, 0, midpoint);
 
-        for (int i = midpoint; i < size; i++) {
-            rHalf[i - midpoint] = array[i];
-        }
+        if (size - midpoint >= 0) System.arraycopy(array, midpoint, rHalf, 0, size - midpoint);
 
         mergeSort(lHalf);
 
         mergeSort(rHalf);
 
-        array = merge(array, lHalf, rHalf, midpoint, size - midpoint);
-        return array;
+        return merge(array, lHalf, rHalf, midpoint, size - midpoint);
     }
 
     public static int[] merge(int[] array, int[] lHalf, int[] rHalf, int midpoint, int midpointOnwards) {
@@ -67,5 +64,12 @@ public class MergeSort extends SortManager {
             array[k++] = rHalf[j++];
         }
         return array;
+    }
+
+    @Override
+    public void sort(int[] arrayToSort, String direction) {
+        Printer.printIntArray(arrayToSort);
+        Printer.printIntArray(mergeSort(arrayToSort, direction));
+        Printer.printMessage("Sorted using the Merge Sort");
     }
 }
